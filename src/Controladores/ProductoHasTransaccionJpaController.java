@@ -19,7 +19,9 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class ProductoHasTransaccionJpaController.
  *
  * @author joans
  */
@@ -32,23 +34,25 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     public ProductoHasTransaccionJpaController() {
         this.emf = Persistence.createEntityManagerFactory("PruebaConexPU");
     }
-    /**
-     * 
-     */
+    
+    /** The emf. */
     private EntityManagerFactory emf = null;
+    
     /**
-     * 
-     * @return
+     * Gets the entity manager.
+     *
+     * @return the entity manager
      */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
     
     /**
-     * 
-     * @param productoHasTransaccion
-     * @throws PreexistingEntityException
-     * @throws Exception
+     * Creates the.
+     *
+     * @param productoHasTransaccion the producto has transaccion
+     * @throws PreexistingEntityException the preexisting entity exception
+     * @throws Exception the exception
      */
     public void create(ProductoHasTransaccion productoHasTransaccion) throws PreexistingEntityException, Exception {
         if (productoHasTransaccion.getProductoHasTransaccionPK() == null) {
@@ -73,10 +77,11 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     }
     
     /**
-     * 
-     * @param productoHasTransaccion
-     * @throws NonexistentEntityException
-     * @throws Exception
+     * Edits the.
+     *
+     * @param productoHasTransaccion the producto has transaccion
+     * @throws NonexistentEntityException the nonexistent entity exception
+     * @throws Exception the exception
      */
 
     public void edit(ProductoHasTransaccion productoHasTransaccion) throws NonexistentEntityException, Exception {
@@ -103,9 +108,10 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     }
     
     /**
-     * 
-     * @param id
-     * @throws NonexistentEntityException
+     * Destroy.
+     *
+     * @param id the id
+     * @throws NonexistentEntityException the nonexistent entity exception
      */
 
     public void destroy(ProductoHasTransaccionPK id) throws NonexistentEntityException {
@@ -130,18 +136,20 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     }
 
     /**
-     * 
-     * @return
+     * Find producto has transaccion entities.
+     *
+     * @return the list
      */
     public List<ProductoHasTransaccion> findProductoHasTransaccionEntities() {
         return findProductoHasTransaccionEntities(true, -1, -1);
     }
     
     /**
-     * 
-     * @param maxResults
-     * @param firstResult
-     * @return
+     * Find producto has transaccion entities.
+     *
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
      */
 
     public List<ProductoHasTransaccion> findProductoHasTransaccionEntities(int maxResults, int firstResult) {
@@ -150,11 +158,12 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     
     
     /**
-     * 
-     * @param all
-     * @param maxResults
-     * @param firstResult
-     * @return
+     * Find producto has transaccion entities.
+     *
+     * @param all the all
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
      */
     private List<ProductoHasTransaccion> findProductoHasTransaccionEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
@@ -173,9 +182,10 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     }
     
     /**
-     * 
-     * @param id
-     * @return
+     * Find producto has transaccion.
+     *
+     * @param id the id
+     * @return the producto has transaccion
      */
 
     public ProductoHasTransaccion findProductoHasTransaccion(ProductoHasTransaccionPK id) {
@@ -188,8 +198,9 @@ public class ProductoHasTransaccionJpaController implements Serializable {
     }
     
     /**
-     * 
-     * @return
+     * Gets the producto has transaccion count.
+     *
+     * @return the producto has transaccion count
      */
     public int getProductoHasTransaccionCount() {
         EntityManager em = getEntityManager();

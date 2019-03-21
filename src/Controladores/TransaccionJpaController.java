@@ -17,23 +17,40 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class TransaccionJpaController.
  *
  * @author joans
  */
 public class TransaccionJpaController implements Serializable {
 
+    /**
+     * Instantiates a new transaccion jpa controller.
+     */
     public TransaccionJpaController() {
         this.emf = Persistence.createEntityManagerFactory("PruebaConexPU");
     }
+    
+    /** The emf. */
     private EntityManagerFactory emf = null;
 
 
 
+    /**
+     * Gets the entity manager.
+     *
+     * @return the entity manager
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     * Creates the.
+     *
+     * @param transaccion the transaccion
+     */
     public void create(Transaccion transaccion) {
         EntityManager em = null;
         try {
@@ -48,6 +65,13 @@ public class TransaccionJpaController implements Serializable {
         }
     }
 
+    /**
+     * Edits the.
+     *
+     * @param transaccion the transaccion
+     * @throws NonexistentEntityException the nonexistent entity exception
+     * @throws Exception the exception
+     */
     public void edit(Transaccion transaccion) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -71,6 +95,12 @@ public class TransaccionJpaController implements Serializable {
         }
     }
 
+    /**
+     * Destroy.
+     *
+     * @param id the id
+     * @throws NonexistentEntityException the nonexistent entity exception
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -92,14 +122,34 @@ public class TransaccionJpaController implements Serializable {
         }
     }
 
+    /**
+     * Find transaccion entities.
+     *
+     * @return the list
+     */
     public List<Transaccion> findTransaccionEntities() {
         return findTransaccionEntities(true, -1, -1);
     }
 
+    /**
+     * Find transaccion entities.
+     *
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
+     */
     public List<Transaccion> findTransaccionEntities(int maxResults, int firstResult) {
         return findTransaccionEntities(false, maxResults, firstResult);
     }
 
+    /**
+     * Find transaccion entities.
+     *
+     * @param all the all
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
+     */
     private List<Transaccion> findTransaccionEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -116,6 +166,12 @@ public class TransaccionJpaController implements Serializable {
         }
     }
 
+    /**
+     * Find transaccion.
+     *
+     * @param id the id
+     * @return the transaccion
+     */
     public Transaccion findTransaccion(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -125,6 +181,11 @@ public class TransaccionJpaController implements Serializable {
         }
     }
 
+    /**
+     * Gets the transaccion count.
+     *
+     * @return the transaccion count
+     */
     public int getTransaccionCount() {
         EntityManager em = getEntityManager();
         try {

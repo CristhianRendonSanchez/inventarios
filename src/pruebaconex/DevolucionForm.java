@@ -17,17 +17,25 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class DevolucionForm.
  *
  * @author joans
  */
 public class DevolucionForm extends javax.swing.JFrame {
+    
+    /** The Producto. */
     ProductoJpaController Producto = new ProductoJpaController();
+    
+    /** The Transaccion. */
     TransaccionJpaController Transaccion = new TransaccionJpaController();
+    
+    /** The Transacciones. */
     ProductoHasTransaccionJpaController Transacciones = new ProductoHasTransaccionJpaController();
 
     /**
-     * Creates new form DevolucionForm
+     * Creates new form DevolucionForm.
      */
     public DevolucionForm() {
         initComponents();
@@ -122,6 +130,11 @@ public class DevolucionForm extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Enviar devoluciones action performed.
+     *
+     * @param evt the evt
+     */
     private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDevolucionesActionPerformed
         List<Producto> listP = Producto.findProductoEntities();
         List<Transaccion> listT = Transaccion.findTransaccionEntities();
@@ -245,6 +258,11 @@ public class DevolucionForm extends javax.swing.JFrame {
         }
     } //GEN-LAST:event_enviarDevolucionesActionPerformed
 
+    /**
+     * Consultar devoluciones action performed.
+     *
+     * @param evt the evt
+     */
     private void consultarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarDevolucionesActionPerformed
         int prueba = Integer.parseInt(campoIdfactura.getText());
         if (campoIdfactura.getText().equals("")) {
@@ -261,20 +279,41 @@ public class DevolucionForm extends javax.swing.JFrame {
         }
     } //GEN-LAST:event_consultarDevolucionesActionPerformed
 
+    /**
+     * J button 1 action performed.
+     *
+     * @param evt the evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Campo idfactura action performed.
+     *
+     * @param evt the evt
+     */
     private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdfacturaActionPerformed
         // TODO add your handling code here:
     } //GEN-LAST:event_campoIdfacturaActionPerformed
 
+    /**
+     * Campo idfactura key typed.
+     *
+     * @param evt the evt
+     */
     private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdfacturaKeyTyped
         char c = evt.getKeyChar();
        
        if(c<'0' || c>'9') evt.consume();
     } //GEN-LAST:event_campoIdfacturaKeyTyped
 
+    /**
+     * Cantidad transaciones.
+     *
+     * @param nombre the nombre
+     * @return the int
+     */
     public int cantidadTransaciones(String nombre) {
         List<Transaccion> listT = Transaccion.findTransaccionEntities();
         for (int i = 0; i < listT.size(); i++) {
@@ -285,6 +324,13 @@ public class DevolucionForm extends javax.swing.JFrame {
         }
         return 0;
     }
+    
+    /**
+     * Cantidad.
+     *
+     * @param nombre the nombre
+     * @return the int
+     */
     public int cantidad(String nombre) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -296,6 +342,12 @@ public class DevolucionForm extends javax.swing.JFrame {
         return 0;
     }
     
+    /**
+     * Busqueda id.
+     *
+     * @param id the id
+     * @return true, if successful
+     */
     public boolean busquedaId(int id) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -307,6 +359,12 @@ public class DevolucionForm extends javax.swing.JFrame {
         return false;
     }
     
+      /**
+       * Traer id.
+       *
+       * @param nombre the nombre
+       * @return the int
+       */
       public int traerId(String nombre ) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -319,6 +377,12 @@ public class DevolucionForm extends javax.swing.JFrame {
         return 0;
     }
 
+    /**
+     * Busqueda nombre.
+     *
+     * @param nombre the nombre
+     * @return true, if successful
+     */
     public boolean busquedaNombre(String nombre) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -330,6 +394,12 @@ public class DevolucionForm extends javax.swing.JFrame {
         return false;
     }
 
+    /**
+     * Traer nombre.
+     *
+     * @param nombre the nombre
+     * @return the int
+     */
     public int traerNombre(String nombre) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -343,6 +413,12 @@ public class DevolucionForm extends javax.swing.JFrame {
         return 0;
     }
 
+    /**
+     * Busqueda.
+     *
+     * @param id the id
+     * @return true, if successful
+     */
     public boolean busqueda(int id) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
@@ -355,8 +431,12 @@ public class DevolucionForm extends javax.swing.JFrame {
     }
     
     
+    /** The modelo 1. */
     DefaultTableModel modelo1;
     
+    /**
+     * Crear modelo.
+     */
     private void CrearModelo() {
         try {
             modelo1 = (new DefaultTableModel(
@@ -391,6 +471,9 @@ public class DevolucionForm extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Cargar informacion.
+     */
     private void CargarInformacion() {
         try {
 
@@ -418,7 +501,10 @@ public class DevolucionForm extends javax.swing.JFrame {
         }
 
     } 
+    
     /**
+     * The main method.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -454,14 +540,29 @@ public class DevolucionForm extends javax.swing.JFrame {
     }
     
 
+    /** The campo idfactura. */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoIdfactura;
+    
+    /** The consultar devoluciones. */
     private javax.swing.JButton consultarDevoluciones;
+    
+    /** The enviar devoluciones. */
     private javax.swing.JButton enviarDevoluciones;
+    
+    /** The j button 1. */
     private javax.swing.JButton jButton1;
+    
+    /** The j label 1. */
     private javax.swing.JLabel jLabel1;
+    
+    /** The j label 2. */
     private javax.swing.JLabel jLabel2;
+    
+    /** The j scroll pane 1. */
     private javax.swing.JScrollPane jScrollPane1;
+    
+    /** The tabla devoluciones. */
     private javax.swing.JTable tablaDevoluciones;
     // End of variables declaration//GEN-END:variables
 }

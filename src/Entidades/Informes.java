@@ -18,17 +18,26 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Informes.
  *
  * @author PORTATIL
  */
 public class Informes {
 
+    /** The C transaccion. */
     private TransaccionJpaController CTransaccion = new TransaccionJpaController();
 
+    /**
+     * Instantiates a new informes.
+     */
     public Informes() {
     }
 
+    /**
+     * Informe entradas.
+     */
     public void informeEntradas() {
         try {
             List<Transaccion> listT = CTransaccion.findTransaccionEntities();
@@ -82,6 +91,9 @@ public class Informes {
         };
     }
 
+    /**
+     * Informe salidas.
+     */
     public void informeSalidas() {
 
         try {
@@ -136,6 +148,9 @@ public class Informes {
         };
     }
 
+    /**
+     * Informe devoluciones.
+     */
     public void informeDevoluciones() {
         try {
             List<Transaccion> listT = CTransaccion.findTransaccionEntities();

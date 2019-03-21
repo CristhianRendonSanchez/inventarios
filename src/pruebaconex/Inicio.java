@@ -12,14 +12,19 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Inicio.
  *
  * @author joans
  */
 public class Inicio extends javax.swing.JFrame {
+
+/** The C producto. */
 ProductoJpaController CProducto = new ProductoJpaController();
+    
     /**
-     * Creates new form Inicio
+     * Creates new form Inicio.
      */
     public Inicio() {
         initComponents();
@@ -28,8 +33,12 @@ ProductoJpaController CProducto = new ProductoJpaController();
         this.setLocationRelativeTo(null);
     }
 
+    /** The modelo 2. */
     DefaultTableModel modelo2;
 
+    /**
+     * Crear modelo.
+     */
     private void CrearModelo() {
         try {
             modelo2 = (new DefaultTableModel(
@@ -62,6 +71,9 @@ ProductoJpaController CProducto = new ProductoJpaController();
         }
     }
 
+    /**
+     * Cargar informacion.
+     */
     /*
     * Metodo usado para cargar los datos que hay en nuestro inventario (en productos)
     */
@@ -176,6 +188,11 @@ ProductoJpaController CProducto = new ProductoJpaController();
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
+    /**
+     * J button 1 action performed.
+     *
+     * @param evt the evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         OpcionesForm abrir = new OpcionesForm();
@@ -183,16 +200,31 @@ ProductoJpaController CProducto = new ProductoJpaController();
         
     } //GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * J button 2 action performed.
+     *
+     * @param evt the evt
+     */
     //BOTON ACTUALIZAR
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Cargar_Informacion();
     } //GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * J button 3 action performed.
+     *
+     * @param evt the evt
+     */
     //BOTON SALIR
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
     } //GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * J button 5 action performed.
+     *
+     * @param evt the evt
+     */
     //Boton generar informes
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Informes info = new Informes();
@@ -202,6 +234,8 @@ ProductoJpaController CProducto = new ProductoJpaController();
     } //GEN-LAST:event_jButton5ActionPerformed
 
     /**
+     * The main method.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -236,13 +270,26 @@ ProductoJpaController CProducto = new ProductoJpaController();
         });
     }
 
+    /** The j button 1. */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    
+    /** The j button 2. */
     private javax.swing.JButton jButton2;
+    
+    /** The j button 3. */
     private javax.swing.JButton jButton3;
+    
+    /** The j button 5. */
     private javax.swing.JButton jButton5;
+    
+    /** The j label fondo. */
     private javax.swing.JLabel jLabelFondo;
+    
+    /** The j scroll pane 1. */
     private javax.swing.JScrollPane jScrollPane1;
+    
+    /** The tabla. */
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,21 +17,38 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class ProductoJpaController.
  *
  * @author joans
  */
 public class ProductoJpaController implements Serializable {
 
+    /**
+     * Instantiates a new producto jpa controller.
+     */
     public ProductoJpaController() {
         this.emf = Persistence.createEntityManagerFactory("PruebaConexPU");
     }
+    
+    /** The emf. */
     private EntityManagerFactory emf = null;
 
+    /**
+     * Gets the entity manager.
+     *
+     * @return the entity manager
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     * Creates the.
+     *
+     * @param producto the producto
+     */
     public void create(Producto producto) {
         EntityManager em = null;
         try {
@@ -46,6 +63,13 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
+    /**
+     * Edits the.
+     *
+     * @param producto the producto
+     * @throws NonexistentEntityException the nonexistent entity exception
+     * @throws Exception the exception
+     */
     public void edit(Producto producto) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -69,6 +93,12 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
+    /**
+     * Destroy.
+     *
+     * @param id the id
+     * @throws NonexistentEntityException the nonexistent entity exception
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -90,14 +120,34 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
+    /**
+     * Find producto entities.
+     *
+     * @return the list
+     */
     public List<Producto> findProductoEntities() {
         return findProductoEntities(true, -1, -1);
     }
 
+    /**
+     * Find producto entities.
+     *
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
+     */
     public List<Producto> findProductoEntities(int maxResults, int firstResult) {
         return findProductoEntities(false, maxResults, firstResult);
     }
 
+    /**
+     * Find producto entities.
+     *
+     * @param all the all
+     * @param maxResults the max results
+     * @param firstResult the first result
+     * @return the list
+     */
     private List<Producto> findProductoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
@@ -114,6 +164,12 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
+    /**
+     * Find producto.
+     *
+     * @param id the id
+     * @return the producto
+     */
     public Producto findProducto(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -123,6 +179,11 @@ public class ProductoJpaController implements Serializable {
         }
     }
 
+    /**
+     * Gets the producto count.
+     *
+     * @return the producto count
+     */
     public int getProductoCount() {
         EntityManager em = getEntityManager();
         try {

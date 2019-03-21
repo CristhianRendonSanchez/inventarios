@@ -18,18 +18,25 @@ import static pruebaconex.CompraForm.txtdate;
 import static pruebaconex.CompraForm.txtproducto;
 import static pruebaconex.CompraForm.txtvalorU;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class VentaForm.
  *
  * @author joans
  */
 public class VentaForm extends javax.swing.JFrame {
 
+    /** The C producto. */
     ProductoJpaController CProducto = new ProductoJpaController();
+    
+    /** The C transaccion. */
     TransaccionJpaController CTransaccion = new TransaccionJpaController();
+    
+    /** The p edit. */
     Producto pEdit;
 
     /**
-     * Creates new form VentaForm
+     * Creates new form VentaForm.
      */
     public VentaForm() {
         initComponents();
@@ -37,6 +44,12 @@ public class VentaForm extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
+    /**
+     * Traer nombre.
+     *
+     * @param nombre the nombre
+     * @return the int
+     */
     //FUNCION QUE ME PASO MANUEL 
     public int traerNombre(String nombre) {
         List<Producto> listP = CProducto.findProductoEntities();
@@ -150,10 +163,20 @@ public class VentaForm extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Txtcantidad action performed.
+     *
+     * @param evt the evt
+     */
     private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
         // TODO add your handling code here:
     } //GEN-LAST:event_txtcantidadActionPerformed
 
+    /**
+     * J button 1 action performed.
+     *
+     * @param evt the evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
@@ -262,10 +285,20 @@ public class VentaForm extends javax.swing.JFrame {
         }
     } //GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * J button 2 action performed.
+     *
+     * @param evt the evt
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Txtproducto key typed.
+     *
+     * @param evt the evt
+     */
     private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproductoKeyTyped
         char c = evt.getKeyChar();
 
@@ -274,12 +307,22 @@ public class VentaForm extends javax.swing.JFrame {
         }
     } //GEN-LAST:event_txtproductoKeyTyped
 
+    /**
+     * Txtcantidad key typed.
+     *
+     * @param evt the evt
+     */
     private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
         char c = evt.getKeyChar();
        
        if(c < '0' || c > '9') evt.consume();
     } //GEN-LAST:event_txtcantidadKeyTyped
 
+    /**
+     * Txtvalor U key typed.
+     *
+     * @param evt the evt
+     */
     private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalorUKeyTyped
         char c = evt.getKeyChar();
        
@@ -287,6 +330,8 @@ public class VentaForm extends javax.swing.JFrame {
     } //GEN-LAST:event_txtvalorUKeyTyped
 
     /**
+     * The main method.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -321,17 +366,38 @@ public class VentaForm extends javax.swing.JFrame {
         });
     }
 
+    /** The j button 1. */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    
+    /** The j button 2. */
     private javax.swing.JButton jButton2;
+    
+    /** The j label 1. */
     private javax.swing.JLabel jLabel1;
+    
+    /** The j label 2. */
     private javax.swing.JLabel jLabel2;
+    
+    /** The j label 3. */
     private javax.swing.JLabel jLabel3;
+    
+    /** The j label 4. */
     private javax.swing.JLabel jLabel4;
+    
+    /** The j label 5. */
     private javax.swing.JLabel jLabel5;
+    
+    /** The txtcantidad. */
     private javax.swing.JTextField txtcantidad;
+    
+    /** The txtdate. */
     private com.toedter.calendar.JDateChooser txtdate;
+    
+    /** The txtproducto. */
     private javax.swing.JTextField txtproducto;
+    
+    /** The txtvalor U. */
     private javax.swing.JTextField txtvalorU;
     // End of variables declaration//GEN-END:variables
 }

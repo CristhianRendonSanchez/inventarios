@@ -5,13 +5,17 @@
  */
 package pruebaconex;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class PruebaConex.
  *
  * @author joans
  */
 public class PruebaConex {
 
     /**
+     * The main method.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {

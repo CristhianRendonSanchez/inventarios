@@ -9,14 +9,19 @@ import Controladores.ProductoJpaController;
 import Entidades.Producto;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class OpcionesForm.
  *
  * @author joans
  */
 public class OpcionesForm extends javax.swing.JFrame {
+    
+    /** The C producto. */
     ProductoJpaController CProducto = new ProductoJpaController();
+    
     /**
-     * Creates new form OpcionesForm
+     * Creates new form OpcionesForm.
      */
     public OpcionesForm() {
         initComponents();
@@ -24,6 +29,12 @@ public class OpcionesForm extends javax.swing.JFrame {
 
     }
 
+     /**
+      * Cantidad.
+      *
+      * @param nombre the nombre
+      * @return the int
+      */
      //FUNCION QUE ME PASO MANUEL 
     public int cantidad(String nombre) {
         List<Producto> listP = CProducto.findProductoEntities();
@@ -104,6 +115,11 @@ public class OpcionesForm extends javax.swing.JFrame {
         pack();
     } // </editor-fold>//GEN-END:initComponents
 
+    /**
+     * J button 1 action performed.
+     *
+     * @param evt the evt
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         CompraForm compra = new CompraForm();
@@ -111,6 +127,11 @@ public class OpcionesForm extends javax.swing.JFrame {
         this.setVisible(false);
     } //GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * J button 2 action performed.
+     *
+     * @param evt the evt
+     */
     //BOTON VENTA
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         VentaForm venta = new VentaForm();
@@ -118,11 +139,21 @@ public class OpcionesForm extends javax.swing.JFrame {
         this.setVisible(false);
     } //GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * J button 4 action performed.
+     *
+     * @param evt the evt
+     */
     //BOTON CERRAR
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton4ActionPerformed
     
+    /**
+     * J button 3 action performed.
+     *
+     * @param evt the evt
+     */
     //BOTON DEVOLUCION DE MANUEL
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DevolucionForm devolucion = new DevolucionForm();
@@ -131,6 +162,8 @@ public class OpcionesForm extends javax.swing.JFrame {
     } //GEN-LAST:event_jButton3ActionPerformed
 
     /**
+     * The main method.
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -165,11 +198,20 @@ public class OpcionesForm extends javax.swing.JFrame {
         });
     }
 
+    /** The j button 1. */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    
+    /** The j button 2. */
     private javax.swing.JButton jButton2;
+    
+    /** The j button 3. */
     private javax.swing.JButton jButton3;
+    
+    /** The j button 4. */
     private javax.swing.JButton jButton4;
+    
+    /** The j label 1. */
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,7 +13,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class ProductoHasTransaccion.
  *
  * @author joans
  */
@@ -26,29 +28,59 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "ProductoHasTransaccion.findByIdTransaccion", query = "SELECT p FROM ProductoHasTransaccion p WHERE p.productoHasTransaccionPK.idTransaccion = :idTransaccion")})
 public class ProductoHasTransaccion implements Serializable {
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
+    
+    /** The producto has transaccion PK. */
     @EmbeddedId
     protected ProductoHasTransaccionPK productoHasTransaccionPK;
 
+    /**
+     * Instantiates a new producto has transaccion.
+     */
     public ProductoHasTransaccion() {
     }
 
+    /**
+     * Instantiates a new producto has transaccion.
+     *
+     * @param productoHasTransaccionPK the producto has transaccion PK
+     */
     public ProductoHasTransaccion(ProductoHasTransaccionPK productoHasTransaccionPK) {
         this.productoHasTransaccionPK = productoHasTransaccionPK;
     }
 
+    /**
+     * Instantiates a new producto has transaccion.
+     *
+     * @param idProducto the id producto
+     * @param idTransaccion the id transaccion
+     */
     public ProductoHasTransaccion(int idProducto, int idTransaccion) {
         this.productoHasTransaccionPK = new ProductoHasTransaccionPK(idProducto, idTransaccion);
     }
 
+    /**
+     * Gets the producto has transaccion PK.
+     *
+     * @return the producto has transaccion PK
+     */
     public ProductoHasTransaccionPK getProductoHasTransaccionPK() {
         return productoHasTransaccionPK;
     }
 
+    /**
+     * Sets the producto has transaccion PK.
+     *
+     * @param productoHasTransaccionPK the new producto has transaccion PK
+     */
     public void setProductoHasTransaccionPK(ProductoHasTransaccionPK productoHasTransaccionPK) {
         this.productoHasTransaccionPK = productoHasTransaccionPK;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -56,6 +88,9 @@ public class ProductoHasTransaccion implements Serializable {
         return hash;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -69,6 +104,9 @@ public class ProductoHasTransaccion implements Serializable {
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return "Entidades.ProductoHasTransaccion[ productoHasTransaccionPK=" + productoHasTransaccionPK + " ]";

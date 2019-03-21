@@ -20,7 +20,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class Transaccion.
  *
  * @author joans
  */
@@ -35,67 +37,130 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Transaccion.findByTipo", query = "SELECT t FROM Transaccion t WHERE t.tipo = :tipo")})
 public class Transaccion implements Serializable {
 
+    /** The fecha T. */
     @Basic(optional = false)
     @Column(name = "fechaT")
     @Temporal(TemporalType.DATE)
     private Date fechaT;
+    
+    /** The nombre producto. */
     @Basic(optional = false)
     @Column(name = "nombreProducto")
     private String nombreProducto;
 
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
+    
+    /** The id transaccion. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idTransaccion")
     private Integer idTransaccion;
+    
+    /** The cantidad. */
     @Column(name = "cantidad")
     private Integer cantidad;
+    
+    /** The precio. */
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precio")
     private Float precio;
+    
+    /** The tipo. */
     @Column(name = "tipo")
     private String tipo;
 
+    /**
+     * Instantiates a new transaccion.
+     */
     public Transaccion() {
     }
 
+    /**
+     * Instantiates a new transaccion.
+     *
+     * @param idTransaccion the id transaccion
+     */
     public Transaccion(Integer idTransaccion) {
         this.idTransaccion = idTransaccion;
     }
 
+    /**
+     * Gets the id transaccion.
+     *
+     * @return the id transaccion
+     */
     public Integer getIdTransaccion() {
         return idTransaccion;
     }
 
+    /**
+     * Sets the id transaccion.
+     *
+     * @param idTransaccion the new id transaccion
+     */
     public void setIdTransaccion(Integer idTransaccion) {
         this.idTransaccion = idTransaccion;
     }
 
+    /**
+     * Gets the cantidad.
+     *
+     * @return the cantidad
+     */
     public Integer getCantidad() {
         return cantidad;
     }
 
+    /**
+     * Sets the cantidad.
+     *
+     * @param cantidad the new cantidad
+     */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 
+    /**
+     * Gets the precio.
+     *
+     * @return the precio
+     */
     public Float getPrecio() {
         return precio;
     }
 
+    /**
+     * Sets the precio.
+     *
+     * @param precio the new precio
+     */
     public void setPrecio(Float precio) {
         this.precio = precio;
     }
 
+    /**
+     * Gets the tipo.
+     *
+     * @return the tipo
+     */
     public String getTipo() {
         return tipo;
     }
 
+    /**
+     * Sets the tipo.
+     *
+     * @param tipo the new tipo
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -103,6 +168,9 @@ public class Transaccion implements Serializable {
         return hash;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -116,23 +184,46 @@ public class Transaccion implements Serializable {
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
         return "Entidades.Transaccion[ idTransaccion=" + idTransaccion + " ]";
     }
 
+    /**
+     * Gets the fecha T.
+     *
+     * @return the fecha T
+     */
     public Date getFechaT() {
         return fechaT;
     }
 
+    /**
+     * Sets the fecha T.
+     *
+     * @param fechaT the new fecha T
+     */
     public void setFechaT(Date fechaT) {
         this.fechaT = fechaT;
     }
 
+    /**
+     * Gets the nombre producto.
+     *
+     * @return the nombre producto
+     */
     public String getNombreProducto() {
         return nombreProducto;
     }
 
+    /**
+     * Sets the nombre producto.
+     *
+     * @param nombreProducto the new nombre producto
+     */
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
     }
