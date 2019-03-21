@@ -120,7 +120,7 @@ public class OpcionesForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
 
         CompraForm compra = new CompraForm();
         compra.setVisible(true);
@@ -133,7 +133,7 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON VENTA
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
         VentaForm venta = new VentaForm();
         venta.setVisible(true);
         this.setVisible(false);
@@ -145,7 +145,7 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON CERRAR
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton4ActionPerformed
     
@@ -155,7 +155,7 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON DEVOLUCION DE MANUEL
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton3ActionPerformed
         DevolucionForm devolucion = new DevolucionForm();
         devolucion.setVisible(true);
         this.setVisible(false);

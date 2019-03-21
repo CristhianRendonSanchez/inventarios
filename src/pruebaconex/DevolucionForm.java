@@ -135,7 +135,7 @@ public class DevolucionForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDevolucionesActionPerformed
+    private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_enviarDevolucionesActionPerformed
         List<Producto> listP = Producto.findProductoEntities();
         List<Transaccion> listT = Transaccion.findTransaccionEntities();
         List<ProductoHasTransaccion> listQ = Transacciones.findProductoHasTransaccionEntities();
@@ -263,7 +263,7 @@ public class DevolucionForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void consultarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarDevolucionesActionPerformed
+    private void consultarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_consultarDevolucionesActionPerformed
         int prueba = Integer.parseInt(campoIdfactura.getText());
         if (campoIdfactura.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "por favor ingrese un Id");
@@ -284,7 +284,7 @@ public class DevolucionForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton1ActionPerformed
 
@@ -293,7 +293,7 @@ public class DevolucionForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdfacturaActionPerformed
+    private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_campoIdfacturaActionPerformed
         // TODO add your handling code here:
     } //GEN-LAST:event_campoIdfacturaActionPerformed
 
@@ -302,10 +302,12 @@ public class DevolucionForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdfacturaKeyTyped
+    private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_campoIdfacturaKeyTyped
         char c = evt.getKeyChar();
        
-       if(c<'0' || c>'9') evt.consume();
+       if (c < '0' || c > '9') {
+    	   evt.consume(); 
+    	   }
     } //GEN-LAST:event_campoIdfacturaKeyTyped
 
     /**
@@ -369,7 +371,7 @@ public class DevolucionForm extends javax.swing.JFrame {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
             if (listP.get(i).getNombreProducto().equals(nombre)) {
-                int idRespueseta= listP.get(i).getIdProducto();
+                int idRespueseta = listP.get(i).getIdProducto();
                 return idRespueseta;
             }
 

@@ -14,7 +14,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.io.File;
+
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 
@@ -87,8 +87,8 @@ public class Informes {
             documento.close();
             JOptionPane.showMessageDialog(null, "informe de entradas generado con exito");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        };
+        	JOptionPane.showMessageDialog(null, e.getMessage());
+        	};
     }
 
     /**
@@ -144,8 +144,8 @@ public class Informes {
             documento.close();
             JOptionPane.showMessageDialog(null, "informe de salidas generado con exito");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        };
+        	JOptionPane.showMessageDialog(null, e.getMessage()); 
+        	};
     }
 
     /**
@@ -226,8 +226,8 @@ public class Informes {
             JOptionPane.showMessageDialog(null, "informe de devoluciones generado con exito");
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        };
+        	JOptionPane.showMessageDialog(null, e.getMessage());
+        	};
     }
 
 }

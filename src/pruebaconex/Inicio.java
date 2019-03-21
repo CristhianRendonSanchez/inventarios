@@ -77,12 +77,12 @@ ProductoJpaController CProducto = new ProductoJpaController();
     /*
     * Metodo usado para cargar los datos que hay en nuestro inventario (en productos)
     */
-    private void Cargar_Informacion(){
-        try{
+    private void Cargar_Informacion() {
+        try {
            Object o[] = null;
            List<Producto> listP = CProducto.findProductoEntities();
            
-           for(int i = 0; i < listP.size(); i++){
+           for (int i = 0; i < listP.size(); i++) {
                modelo2.addRow(o);
                
                modelo2.setValueAt(listP.get(i).getNombreProducto(), i, 0);
@@ -97,7 +97,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
                
                modelo2.setValueAt(precio, i, 3);
            }
-        }catch(Exception e){
+        } catch (Exception e) { 
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
@@ -193,7 +193,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         OpcionesForm abrir = new OpcionesForm();
         abrir.setVisible(true);
@@ -206,7 +206,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //BOTON ACTUALIZAR
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
         Cargar_Informacion();
     } //GEN-LAST:event_jButton2ActionPerformed
 
@@ -216,7 +216,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //BOTON SALIR
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
     } //GEN-LAST:event_jButton3ActionPerformed
 
@@ -226,7 +226,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //Boton generar informes
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton5ActionPerformed
         Informes info = new Informes();
         info.informeEntradas();
         info.informeSalidas();

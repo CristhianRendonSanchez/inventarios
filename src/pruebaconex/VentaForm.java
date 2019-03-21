@@ -9,7 +9,6 @@ import Controladores.ProductoJpaController;
 import Controladores.TransaccionJpaController;
 import Entidades.Producto;
 import Entidades.Transaccion;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -168,7 +167,7 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
+    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_txtcantidadActionPerformed
         // TODO add your handling code here:
     } //GEN-LAST:event_txtcantidadActionPerformed
 
@@ -177,7 +176,7 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
 
         try {
             List<Producto> listP = CProducto.findProductoEntities();
@@ -290,7 +289,7 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
     } //GEN-LAST:event_jButton2ActionPerformed
 
@@ -299,7 +298,7 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproductoKeyTyped
+    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtproductoKeyTyped
         char c = evt.getKeyChar();
 
         if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
@@ -312,10 +311,12 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtcantidadKeyTyped
         char c = evt.getKeyChar();
        
-       if(c < '0' || c > '9') evt.consume();
+       if (c < '0' || c > '9') { 
+    	   evt.consume();
+    	   }
     } //GEN-LAST:event_txtcantidadKeyTyped
 
     /**
@@ -323,10 +324,12 @@ public class VentaForm extends javax.swing.JFrame {
      *
      * @param evt the evt
      */
-    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalorUKeyTyped
+    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtvalorUKeyTyped
         char c = evt.getKeyChar();
        
-       if(c < '0' || c > '9') evt.consume();
+       if (c < '0' || c > '9') { 
+    	   evt.consume(); 
+    	   }
     } //GEN-LAST:event_txtvalorUKeyTyped
 
     /**
