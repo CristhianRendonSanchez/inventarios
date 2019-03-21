@@ -31,7 +31,6 @@ public class Informes {
 
     public void informeEntradas() {
         try {
-            Object o[] = null;
             List<Transaccion> listT = CTransaccion.findTransaccionEntities();
 
             SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-yyyy");
@@ -77,9 +76,7 @@ public class Informes {
             }
             documento.add(table);
             documento.close();
-            
-            JOptionPane.showMessageDialog(null,"informe de entradas generado con exito");
-
+            JOptionPane.showMessageDialog(null, "informe de entradas generado con exito");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         };
@@ -88,7 +85,6 @@ public class Informes {
     public void informeSalidas() {
 
         try {
-            Object o[] = null;
             List<Transaccion> listT = CTransaccion.findTransaccionEntities();
 
             SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-yyyy");
@@ -134,9 +130,7 @@ public class Informes {
             }
             documento.add(table);
             documento.close();
-            
-            JOptionPane.showMessageDialog(null,"informe de salidas generado con exito");
-
+            JOptionPane.showMessageDialog(null, "informe de salidas generado con exito");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         };
@@ -144,7 +138,6 @@ public class Informes {
 
     public void informeDevoluciones() {
         try {
-            Object o[] = null;
             List<Transaccion> listT = CTransaccion.findTransaccionEntities();
 
             SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-yyyy");
@@ -154,12 +147,12 @@ public class Informes {
             PdfWriter.getInstance(documento, archivo);
             documento.open();
 
-            Paragraph titulo =new Paragraph();
+            Paragraph titulo = new Paragraph();
             titulo.add("Informe de Devoluciones \n \n");
             titulo.setAlignment(1);
             documento.add(titulo);
 
-            documento.add( new Paragraph("Informe de Devoluciones entrada \n \n"));
+            documento.add(new Paragraph("Informe de Devoluciones entrada \n \n"));
 
             // Este codigo genera una tabla de 3 columnas
             PdfPTable table1 = new PdfPTable(5);
@@ -194,7 +187,7 @@ public class Informes {
             }
             documento.add(table1);
 
-            documento.add( new Paragraph("\n \n Informe de Devoluciones salida \n \n"));
+            documento.add(new Paragraph("\n \n Informe de Devoluciones salida \n \n"));
 
             for (int i = 0; i < listT.size(); i++) {
 
@@ -215,7 +208,7 @@ public class Informes {
             }
             documento.add(table2);
             documento.close();
-            JOptionPane.showMessageDialog(null,"informe de devoluciones generado con exito");
+            JOptionPane.showMessageDialog(null, "informe de devoluciones generado con exito");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

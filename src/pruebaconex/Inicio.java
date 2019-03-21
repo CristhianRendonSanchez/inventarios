@@ -174,24 +174,24 @@ ProductoJpaController CProducto = new ProductoJpaController();
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 610, 450));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         OpcionesForm abrir = new OpcionesForm();
         abrir.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    } //GEN-LAST:event_jButton1ActionPerformed
 
     //BOTON ACTUALIZAR
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Cargar_Informacion();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    } //GEN-LAST:event_jButton2ActionPerformed
 
     //BOTON SALIR
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    } //GEN-LAST:event_jButton3ActionPerformed
 
     //Boton generar informes
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -199,7 +199,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
         info.informeEntradas();
         info.informeSalidas();
         info.informeDevoluciones();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    } //GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,7 +210,6 @@ ProductoJpaController CProducto = new ProductoJpaController();
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

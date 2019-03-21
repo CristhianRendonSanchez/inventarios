@@ -120,7 +120,7 @@ public class DevolucionForm extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    } // </editor-fold>//GEN-END:initComponents
 
     private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDevolucionesActionPerformed
         List<Producto> listP = Producto.findProductoEntities();
@@ -243,7 +243,7 @@ public class DevolucionForm extends javax.swing.JFrame {
 
             }
         }
-    }//GEN-LAST:event_enviarDevolucionesActionPerformed
+    } //GEN-LAST:event_enviarDevolucionesActionPerformed
 
     private void consultarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarDevolucionesActionPerformed
         int prueba = Integer.parseInt(campoIdfactura.getText());
@@ -259,21 +259,21 @@ public class DevolucionForm extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_consultarDevolucionesActionPerformed
+    } //GEN-LAST:event_consultarDevolucionesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    } //GEN-LAST:event_jButton1ActionPerformed
 
     private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdfacturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoIdfacturaActionPerformed
+    } //GEN-LAST:event_campoIdfacturaActionPerformed
 
     private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdfacturaKeyTyped
         char c = evt.getKeyChar();
        
        if(c<'0' || c>'9') evt.consume();
-    }//GEN-LAST:event_campoIdfacturaKeyTyped
+    } //GEN-LAST:event_campoIdfacturaKeyTyped
 
     public int cantidadTransaciones(String nombre) {
         List<Transaccion> listT = Transaccion.findTransaccionEntities();

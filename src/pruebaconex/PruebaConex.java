@@ -18,5 +18,4 @@ public class PruebaConex {
         Inicio i = new Inicio();
         i.setVisible(true);
     }
-    
 }

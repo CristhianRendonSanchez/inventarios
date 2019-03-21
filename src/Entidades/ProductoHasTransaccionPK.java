@@ -76,5 +76,4 @@ public class ProductoHasTransaccionPK implements Serializable {
     public String toString() {
         return "Entidades.ProductoHasTransaccionPK[ idProducto=" + idProducto + ", idTransaccion=" + idTransaccion + " ]";
     }
-    
 }

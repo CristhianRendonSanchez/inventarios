@@ -136,5 +136,4 @@ public class Transaccion implements Serializable {
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
     }
-    
 }
