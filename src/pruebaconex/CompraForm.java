@@ -10,6 +10,11 @@ import Controladores.TransaccionJpaController;
 import Entidades.Producto;
 import Entidades.Transaccion;
 import javax.swing.JOptionPane;
+import Controladores.*;
+import Entidades.Informes;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JFrame;
 
@@ -140,16 +145,16 @@ public class CompraForm extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * Txtproducto action performed.
      *
      * @param evt the evt
      */
-    private void txtproductoActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_txtproductoActionPerformed
+    private void txtproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtproductoActionPerformed
         // TODO add your handling code here:
-    } //GEN-LAST:event_txtproductoActionPerformed
+    }//GEN-LAST:event_txtproductoActionPerformed
 
     /**
      * Traer nombre.
@@ -177,10 +182,11 @@ public class CompraForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON CON EL QUE SE REALIZA LA COMPRA
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
 
+            Object o[] = null;
             List<Producto> listP = CProducto.findProductoEntities();
             boolean resp = false; //ESTO ES LA BANDERA PARA SABER SI EL PRODUCTO EXISTE
             int num = 0;
@@ -226,7 +232,7 @@ public class CompraForm extends javax.swing.JFrame {
                
                cantidadTotal = cantidadTotal + cantidadCompra;
                valorTotal = valorTotal + valorTotalC;   
-               float valorUnitario = valorTotal / cantidadTotal; //ESTE ES EL COSTO UNITARIO
+               float valorUnitario = valorTotal/cantidadTotal; //ESTE ES EL COSTO UNITARIO
               
                //REALIZAMOS LA ACTUALIZACION DEL CPP EN EL PRODUCTO
                int id = traerNombre(nombreP);
@@ -257,56 +263,50 @@ public class CompraForm extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + e.getCause());
         }
-    } //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * J button 2 action performed.
      *
      * @param evt the evt
      */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-    } //GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * Txtproducto key typed.
      *
      * @param evt the evt
      */
-    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtproductoKeyTyped
+    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproductoKeyTyped
        char c = evt.getKeyChar();
        
-       if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
-    	   evt.consume(); 
-    	   }
+       if((c<'a' || c>'z') && (c<'A' || c>'Z')) evt.consume();
        
-    } //GEN-LAST:event_txtproductoKeyTyped
+    }//GEN-LAST:event_txtproductoKeyTyped
 
     /**
      * Txtcantidad key typed.
      *
      * @param evt the evt
      */
-    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtcantidadKeyTyped
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
        char c = evt.getKeyChar();
        
-       if (c < '0' || c > '9') { 
-    	   evt.consume(); 
-    	   }
-    } //GEN-LAST:event_txtcantidadKeyTyped
+       if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtcantidadKeyTyped
 
     /**
      * Txtvalor U key typed.
      *
      * @param evt the evt
      */
-    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtvalorUKeyTyped
+    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalorUKeyTyped
         char c = evt.getKeyChar();
        
-       if (c < '0' || c > '9') { 
-    	   evt.consume();
-    	   }
-    } //GEN-LAST:event_txtvalorUKeyTyped
+       if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtvalorUKeyTyped
 
     /**
      * The main method.

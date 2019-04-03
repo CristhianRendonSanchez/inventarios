@@ -9,6 +9,7 @@ import Controladores.ProductoJpaController;
 import Controladores.TransaccionJpaController;
 import Entidades.Producto;
 import Entidades.Transaccion;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -160,25 +161,27 @@ public class VentaForm extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * Txtcantidad action performed.
      *
      * @param evt the evt
      */
-    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_txtcantidadActionPerformed
+    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
         // TODO add your handling code here:
-    } //GEN-LAST:event_txtcantidadActionPerformed
+    }//GEN-LAST:event_txtcantidadActionPerformed
 
     /**
      * J button 1 action performed.
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
+
+            Object o[] = null;
             List<Producto> listP = CProducto.findProductoEntities();
             boolean resp = false; //ESTO ES LA BANDERA PARA SABER SI EL PRODUCTO EXISTE
             int num = 0;
@@ -282,55 +285,51 @@ public class VentaForm extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage() + e.getCause());
         }
-    } //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * J button 2 action performed.
      *
      * @param evt the evt
      */
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setVisible(false);
-    } //GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * Txtproducto key typed.
      *
      * @param evt the evt
      */
-    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtproductoKeyTyped
+    private void txtproductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtproductoKeyTyped
         char c = evt.getKeyChar();
 
         if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) {
             evt.consume();
         }
-    } //GEN-LAST:event_txtproductoKeyTyped
+    }//GEN-LAST:event_txtproductoKeyTyped
 
     /**
      * Txtcantidad key typed.
      *
      * @param evt the evt
      */
-    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtcantidadKeyTyped
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
         char c = evt.getKeyChar();
        
-       if (c < '0' || c > '9') { 
-    	   evt.consume();
-    	   }
-    } //GEN-LAST:event_txtcantidadKeyTyped
+       if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtcantidadKeyTyped
 
     /**
      * Txtvalor U key typed.
      *
      * @param evt the evt
      */
-    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_txtvalorUKeyTyped
+    private void txtvalorUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalorUKeyTyped
         char c = evt.getKeyChar();
        
-       if (c < '0' || c > '9') { 
-    	   evt.consume(); 
-    	   }
-    } //GEN-LAST:event_txtvalorUKeyTyped
+       if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_txtvalorUKeyTyped
 
     /**
      * The main method.

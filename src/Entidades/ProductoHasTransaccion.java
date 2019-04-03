@@ -111,4 +111,5 @@ public class ProductoHasTransaccion implements Serializable {
     public String toString() {
         return "Entidades.ProductoHasTransaccion[ productoHasTransaccionPK=" + productoHasTransaccionPK + " ]";
     }
+    
 }

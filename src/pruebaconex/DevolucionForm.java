@@ -40,7 +40,7 @@ public class DevolucionForm extends javax.swing.JFrame {
     public DevolucionForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-                this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
     /**
@@ -52,10 +52,7 @@ public class DevolucionForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        consultarDevoluciones = new javax.swing.JButton();
         campoIdfactura = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaDevoluciones = new javax.swing.JTable();
         enviarDevoluciones = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -63,14 +60,6 @@ public class DevolucionForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        consultarDevoluciones.setText("Consultar");
-        consultarDevoluciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarDevolucionesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(consultarDevoluciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
         campoIdfactura.setToolTipText("");
         campoIdfactura.addActionListener(new java.awt.event.ActionListener() {
@@ -83,22 +72,7 @@ public class DevolucionForm extends javax.swing.JFrame {
                 campoIdfacturaKeyTyped(evt);
             }
         });
-        getContentPane().add(campoIdfactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 192, -1));
-
-        tablaDevoluciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tablaDevoluciones);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 340, 210));
+        getContentPane().add(campoIdfactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 192, 20));
 
         enviarDevoluciones.setText("Enviar");
         enviarDevoluciones.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +80,7 @@ public class DevolucionForm extends javax.swing.JFrame {
                 enviarDevolucionesActionPerformed(evt);
             }
         });
-        getContentPane().add(enviarDevoluciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 312, -1, -1));
+        getContentPane().add(enviarDevoluciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, 20));
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -121,25 +95,26 @@ public class DevolucionForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Id Transaccion:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 160, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo2.jpg"))); // NOI18N
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 160));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * Enviar devoluciones action performed.
      *
      * @param evt the evt
      */
-    private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_enviarDevolucionesActionPerformed
+    private void enviarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarDevolucionesActionPerformed
         List<Producto> listP = Producto.findProductoEntities();
         List<Transaccion> listT = Transaccion.findTransaccionEntities();
-        List<ProductoHasTransaccion> listQ = Transacciones.findProductoHasTransaccionEntities();
-
+        //List<ProductoHasTransaccion> listQ = Transacciones.findProductoHasTransaccionEntities();
+        boolean bandera = true;
+        
         Producto p = new Producto();
         int idFactura = Integer.parseInt(campoIdfactura.getText());
         for (int i = 0; i < listT.size(); i++) {
@@ -148,168 +123,157 @@ public class DevolucionForm extends javax.swing.JFrame {
                 String nombre = listT.get(i).getNombreProducto();
                 String tipo = listT.get(i).getTipo();
                 float precioDeLaTransacion = listT.get(i).getPrecio();
-                float precio = 0;
                 int cantidadEnLaTransaccion = listT.get(i).getCantidad();
-                int cantidadEnInventario = listP.get(i).getCantidadAlmacenada();
+                boolean estadoDevolucion = listT.get(i).getDevolucion();
+                int idTransaccion = listT.get(i).getIdTransaccion();
+                
                 int idProducto = traerId(nombre);
+                int cantidadEnInventario = cantidad(nombre);
 
-                System.out.println(cantidadTransaciones(nombre) + tipo);
-
-                if (cantidadTransaciones(nombre) > 0 && tipo.equals("entrada")) {
+                //System.out.println(cantidadTransaciones(nombre) + tipo);
+                if (cantidad(nombre) > 0 && tipo.equals("entrada") && estadoDevolucion == false) {
                     try {
                         //se trata como una salida (devolucion a proveedor) se actualiza el valor en la bd
-                        System.out.println("entre caso 1 ");
                         Producto eActualizable = Producto.findProducto(idProducto);
-                        int nuevaCantidad = cantidadEnLaTransaccion - cantidadEnInventario;
-                        float valorUnitario;
-                        float totalSalida = precioDeLaTransacion * cantidadEnLaTransaccion;//
-                        float precioDeInventario = listP.get(i).getValorUnitario();
-                        float actualizacionSaldo = totalSalida + precioDeInventario;// ojo aqui preguntarles
-                        valorUnitario = actualizacionSaldo / nuevaCantidad;
+                        //System.out.println(eActualizable);
+                        System.out.println("LA CANTIDAD DE LA TRANSACCION FUE DE " + cantidadEnLaTransaccion);
+                        int nuevaCantidad = cantidadEnInventario - cantidadEnLaTransaccion;
+                        
+                        if (nuevaCantidad < 0) {
+                            JOptionPane.showMessageDialog(null, "Lo sentimos, no tenemos esa cantidad.\nSolo poseemos " + cantidadEnInventario
+                                    + " articulos en el inventario\n y tu estás solicitando devolución de " + cantidadEnLaTransaccion + " articulos.", "Total excedido", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            
+                            float totalSalida = precioDeLaTransacion * cantidadEnLaTransaccion;
+                            
+                            float precioDeInventario = traerValorU(nombre) * cantidadEnInventario;
 
-                        eActualizable.setCantidadAlmacenada(nuevaCantidad);
-                        eActualizable.setNombreProducto(nombre);
-                        eActualizable.setValorUnitario(precio);
-                        Producto.edit(eActualizable);
+                            //Este es el Valor Total de la transaccion
+                            float actualizacionSaldo = totalSalida - precioDeInventario;
+                            
+                            float valorUnitario = actualizacionSaldo / nuevaCantidad;
+                            
+                            eActualizable.setCantidadAlmacenada(nuevaCantidad);
+                            eActualizable.setNombreProducto(nombre);
+                            eActualizable.setValorUnitario(valorUnitario);
+                            Producto.edit(eActualizable);
 
-                        Producto.create(eActualizable);
+                            //REALIZAMOS LA TRANSACCION DE LA DEVOLUCION POR ENTRADA
+                            Transaccion registro = new Transaccion();
+                            registro.setFechaT(fecha);
+                            registro.setNombreProducto(nombre);
+                            registro.setCantidad(cantidadEnLaTransaccion);
+                            registro.setPrecio(precioDeLaTransacion);
+                            registro.setTipo("dev Entrada");
+                            registro.setDevolucion(false);
+                            
+                            Transaccion.create(registro);
 
-                        Transaccion registro = new Transaccion();
-                        registro.setFechaT(fecha);
-                        registro.setNombreProducto(nombre);
-                        registro.setCantidad(cantidadEnInventario);
-                        registro.setPrecio(actualizacionSaldo);
-                        registro.setTipo("devolucion");
-                        Transaccion.create(registro);
+                            //
+                            Transaccion actualizable = Transaccion.findTransaccion(idTransaccion);
+                            actualizable.setDevolucion(true);
+                            Transaccion.edit(actualizable);
+                            
+                            JOptionPane.showMessageDialog(null, "Devolución Exitosa.");
+                            this.setVisible(false);
+                        }
                     } catch (Exception ex) {
-
+                        JOptionPane.showMessageDialog(null, "Error, revisa tus datos.");
                     }
-
-                }
-                if (cantidadTransaciones(nombre) == 0 && tipo.equals("entrada")) {
-                    System.out.println("entre caso 2 ");
-                    //se trata como una salida (devolucion a proveedor) y se crea nuevamente el valor en la bd
-                    JOptionPane.showMessageDialog(null, "no existe registros previos de este producto\n+"
-                            + " verifique porfavor en el boton consultar");
-
-                }
-                if (cantidadTransaciones(nombre) > 0 && tipo.equals("salida")) {
+                    //NOTA
+                } else if (cantidad(nombre) > 0 && tipo.equals("entrada") && estadoDevolucion == true) {
+                    JOptionPane.showMessageDialog(null, "Lo sentimos, esta devolución ya fue\nRealizada anteriormente.", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                    this.setVisible(false);
+                } else if (cantidad(nombre) > 0 && tipo.equals("salida") && estadoDevolucion == false) {
                     //se trata como una entrada (devolucion de un cliente a nosotros )se actualiza el valor en la bd 
-                    System.out.println("entre caso 3 ");
                     try {
                         Producto eActualizable = Producto.findProducto(idProducto);
-                        int nuevaCantidad = cantidadEnLaTransaccion + cantidadEnInventario;
+                        
+                        int nuevaCantidad = cantidadEnInventario + cantidadEnLaTransaccion;
                         float valorUnitario;
-                        float totalEntrada = precioDeLaTransacion * cantidadEnLaTransaccion;//
-                        float precioDeInventario = listP.get(i).getValorUnitario();
-                        float actualizacionSaldo = totalEntrada + precioDeInventario;
-                        valorUnitario = actualizacionSaldo / nuevaCantidad;
+                        float totalSalida = precioDeLaTransacion * cantidadEnLaTransaccion;
+                        float precioDeInventario = traerValorU(nombre) * cantidadEnInventario;
 
+                        //Este es el Valor Total de la transaccion
+                        float actualizacionSaldo = totalSalida + precioDeInventario;
+                        
+                        valorUnitario = actualizacionSaldo / nuevaCantidad;
+                        
                         eActualizable.setCantidadAlmacenada(nuevaCantidad);
-                        eActualizable.setNombreProducto(nombre);
+                        // eActualizable.setNombreProducto(nombre);
                         eActualizable.setValorUnitario(valorUnitario);
                         Producto.edit(eActualizable);
 
+                        //REALIZAMOS LA TRANSACCION DE LA DEVOLUCION POR ENTRADA
                         Transaccion registro = new Transaccion();
                         registro.setFechaT(fecha);
                         registro.setNombreProducto(nombre);
-                        registro.setCantidad(cantidadEnInventario);
-                        registro.setPrecio(actualizacionSaldo);
-                        registro.setTipo("devolucion");
-                        Transaccion.create(registro);
-                    } catch (Exception ex) {
-
-                    }
-
-                }
-
-                if (cantidad(nombre) == 0 && tipo.equals("salida")) {
-                    System.out.println("entre caso 4 ");
-                    //se trata como una entrada (devolucion de un cliente hacia nosotros) que ya no esta registrada en la bd
-                    try {
-                        Producto eActualizable = new Producto();
-                        int nuevaCantidad = cantidadEnLaTransaccion + cantidadEnInventario;
-                        eActualizable.setCantidadAlmacenada(nuevaCantidad);
-                        eActualizable.setNombreProducto(nombre);
-                        eActualizable.setValorUnitario(precioDeLaTransacion);
-                        Producto.create(eActualizable);
-
-                        Transaccion registro = new Transaccion();
-                        registro.setFechaT(fecha);
-                        registro.setNombreProducto(nombre);
-                        registro.setCantidad(cantidadEnInventario);
-                        float dinero = precioDeLaTransacion * cantidadEnInventario;
-                        registro.setPrecio(precio);
-                        registro.setTipo("devolucion");
+                        registro.setCantidad(cantidadEnLaTransaccion);
+                        registro.setPrecio(precioDeLaTransacion);
+                        registro.setTipo("dev Salida");
+                        registro.setDevolucion(false);
+                        
                         Transaccion.create(registro);
 
-                        JOptionPane.showMessageDialog(null, "devolucion exitosa");
+                        //
+                        Transaccion actualizable = Transaccion.findTransaccion(idTransaccion);
+                        actualizable.setDevolucion(true);
+                        Transaccion.edit(actualizable);
+                        
+                        JOptionPane.showMessageDialog(null, "Devolución Exitosa.");
+                        this.setVisible(false);
+                        
                     } catch (Exception ex) {
-
+                        JOptionPane.showMessageDialog(null, "Error, revisa tus datos");
                     }
-
+//AQIO
+                } else if (cantidad(nombre) > 0 && tipo.equals("salida") && estadoDevolucion == true) {
+                    JOptionPane.showMessageDialog(null, "Lo sentimos, esta devolución ya fue\nRealizada anteriormente.", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                    this.setVisible(false);
+                    
+                } else {
+                    bandera = false;
                 }
-
-                p.setCantidadAlmacenada(cantidadEnInventario);
-                p.setNombreProducto(nombre);
-                p.setValorUnitario(precio);
-
             }
+            
         }
-    } //GEN-LAST:event_enviarDevolucionesActionPerformed
-
-    /**
-     * Consultar devoluciones action performed.
-     *
-     * @param evt the evt
-     */
-    private void consultarDevolucionesActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_consultarDevolucionesActionPerformed
-        int prueba = Integer.parseInt(campoIdfactura.getText());
-        if (campoIdfactura.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "por favor ingrese un Id");
-        } else {
-            CrearModelo();
-            CargarInformacion();
-            if (busquedaId(prueba) == true) {
-                JOptionPane.showMessageDialog(null, "la factura existe ");
-            } else {
-                JOptionPane.showMessageDialog(null, "la factura no existe");
-            }
-
+        if (bandera != true) { //VA A VENDER UN PRODUCTO QUE NO EXISTE:
+            JOptionPane.showMessageDialog(null, "Estás intentando devolver algo que no existe!\nRevisa tu inventario.", "ERROR", JOptionPane.WARNING_MESSAGE);
+            
         }
-    } //GEN-LAST:event_consultarDevolucionesActionPerformed
+    }//GEN-LAST:event_enviarDevolucionesActionPerformed
 
     /**
      * J button 1 action performed.
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-    } //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * Campo idfactura action performed.
      *
      * @param evt the evt
      */
-    private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_campoIdfacturaActionPerformed
+    private void campoIdfacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdfacturaActionPerformed
         // TODO add your handling code here:
-    } //GEN-LAST:event_campoIdfacturaActionPerformed
+    }//GEN-LAST:event_campoIdfacturaActionPerformed
 
     /**
      * Campo idfactura key typed.
      *
      * @param evt the evt
      */
-    private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_campoIdfacturaKeyTyped
+    private void campoIdfacturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoIdfacturaKeyTyped
         char c = evt.getKeyChar();
-       
-       if (c < '0' || c > '9') {
-    	   evt.consume(); 
-    	   }
-    } //GEN-LAST:event_campoIdfacturaKeyTyped
-
+        
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_campoIdfacturaKeyTyped
+    
     /**
      * Cantidad transaciones.
      *
@@ -356,29 +320,29 @@ public class DevolucionForm extends javax.swing.JFrame {
             if (listP.get(i).getIdProducto().equals(id)) {
                 return true;
             }
-
+            
         }
         return false;
     }
     
-      /**
-       * Traer id.
-       *
-       * @param nombre the nombre
-       * @return the int
-       */
-      public int traerId(String nombre ) {
+    /**
+     * Traer id.
+     *
+     * @param nombre the nombre
+     * @return the int
+     */
+    public int traerId(String nombre) {
         List<Producto> listP = Producto.findProductoEntities();
         for (int i = 0; i < listP.size(); i++) {
             if (listP.get(i).getNombreProducto().equals(nombre)) {
                 int idRespueseta = listP.get(i).getIdProducto();
                 return idRespueseta;
             }
-
+            
         }
         return 0;
     }
-
+    
     /**
      * Busqueda nombre.
      *
@@ -391,11 +355,11 @@ public class DevolucionForm extends javax.swing.JFrame {
             if (listP.get(i).getNombreProducto().equals(nombre)) {
                 return true;
             }
-
+            
         }
         return false;
     }
-
+    
     /**
      * Traer nombre.
      *
@@ -408,13 +372,33 @@ public class DevolucionForm extends javax.swing.JFrame {
             if (listP.get(i).getNombreProducto().equals(nombre)) {
                 int resultadoBusqueda = listP.get(i).getIdProducto();
                 return resultadoBusqueda;
+                
+            }
+            
+        }
+        return 0;
+    }
+    
+    /**
+     * Traer valor U.
+     *
+     * @param nombre the nombre
+     * @return the float
+     */
+    //FUNCION QUE ME PASO MANUEL 
+    public float traerValorU(String nombre) {
+        List<Producto> listP = Producto.findProductoEntities();
+        for (int i = 0; i < listP.size(); i++) {
+            if (listP.get(i).getNombreProducto().equals(nombre)) {
+                float resultadoBusqueda = listP.get(i).getValorUnitario();
+                return resultadoBusqueda;
 
             }
 
         }
         return 0;
     }
-
+    
     /**
      * Busqueda.
      *
@@ -427,11 +411,10 @@ public class DevolucionForm extends javax.swing.JFrame {
             if (listP.get(i).getIdProducto() == id) {
                 return true;
             }
-
+            
         }
         return false;
     }
-    
     
     /** The modelo 1. */
     DefaultTableModel modelo1;
@@ -455,38 +438,38 @@ public class DevolucionForm extends javax.swing.JFrame {
                 boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false
                 };
-
+                
                 @Override
                 public Class getColumnClass(int columnIndex) {
                     return types[columnIndex];
                 }
-
+                
                 @Override
                 public boolean isCellEditable(int rowIndex, int colIndex) {
                     return canEdit[colIndex];
                 }
             });
-            tablaDevoluciones.setModel(modelo1);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString() + "error2");
-
+            
         }
     }
-
+    
     /**
      * Cargar informacion.
      */
     private void CargarInformacion() {
         try {
-
+            
             Object o[] = null;
             List<Producto> listP = Producto.findProductoEntities();
             List<Transaccion> listT = Transaccion.findTransaccionEntities();
             List<ProductoHasTransaccion> listQ = Transacciones.findProductoHasTransaccionEntities();
             for (int i = 0; i < listT.size(); i++) {
                 int IdFacturaDevolucion = Integer.parseInt(campoIdfactura.getText());
-
-                System.out.println("estoy aqui otra vez");
+                
+                //System.out.println("estoy aqui otra vez");
                 modelo1.addRow(o);
                 modelo1.setValueAt(listT.get(i).getIdTransaccion(), i, 0);
                 modelo1.setValueAt(listT.get(i).getFechaT(), i, 1);
@@ -494,16 +477,16 @@ public class DevolucionForm extends javax.swing.JFrame {
                 modelo1.setValueAt(listT.get(i).getCantidad(), i, 3);
                 modelo1.setValueAt(listT.get(i).getPrecio(), i, 4);
                 modelo1.setValueAt(listT.get(i).getTipo(), i, 5);
-
+                
             }
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-            System.out.print("esto es de aqui");
+            //System.out.print("esto es de aqui");
         }
+        
+    }
 
-    } 
-    
     /**
      * The main method.
      *
@@ -540,14 +523,11 @@ public class DevolucionForm extends javax.swing.JFrame {
             }
         });
     }
-    
+
 
     /** The campo idfactura. */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campoIdfactura;
-    
-    /** The consultar devoluciones. */
-    private javax.swing.JButton consultarDevoluciones;
     
     /** The enviar devoluciones. */
     private javax.swing.JButton enviarDevoluciones;
@@ -560,11 +540,5 @@ public class DevolucionForm extends javax.swing.JFrame {
     
     /** The j label 2. */
     private javax.swing.JLabel jLabel2;
-    
-    /** The j scroll pane 1. */
-    private javax.swing.JScrollPane jScrollPane1;
-    
-    /** The tabla devoluciones. */
-    private javax.swing.JTable tablaDevoluciones;
     // End of variables declaration//GEN-END:variables
 }

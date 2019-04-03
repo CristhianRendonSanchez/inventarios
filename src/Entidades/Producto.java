@@ -6,6 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,23 +37,23 @@ public class Producto implements Serializable {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
-    
+
     /** The id producto. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "idProducto")
     private Integer idProducto;
-    
+
     /** The nombre producto. */
     @Column(name = "nombreProducto")
     private String nombreProducto;
-    
+
     /** The valor unitario. */
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valorUnitario")
     private Float valorUnitario;
-    
+
     /** The cantidad almacenada. */
     @Column(name = "cantidadAlmacenada")
     private Integer cantidadAlmacenada;
@@ -68,7 +69,7 @@ public class Producto implements Serializable {
      *
      * @param idProducto the id producto
      */
-    public Producto(Integer idProducto) {
+    public Producto(Integer idProducto){
         this.idProducto = idProducto;
     }
 
@@ -177,4 +178,5 @@ public class Producto implements Serializable {
     public String toString() {
         return "Entidades.Producto[ idProducto=" + idProducto + " ]";
     }
+
 }

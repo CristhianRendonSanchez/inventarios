@@ -12,14 +12,14 @@ package pruebaconex;
  * @author joans
  */
 public class PruebaConex {
-
-    /**
-     * The main method.
-     *
-     * @param args the command line arguments
-     */
+/**
+* The main method.
+*
+* @param args the command line arguments
+*/
     public static void main(String[] args) {
         Inicio i = new Inicio();
         i.setVisible(true);
     }
+
 }

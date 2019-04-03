@@ -74,15 +74,12 @@ ProductoJpaController CProducto = new ProductoJpaController();
     /**
      * Cargar informacion.
      */
-    /*
-    * Metodo usado para cargar los datos que hay en nuestro inventario (en productos)
-    */
-    private void Cargar_Informacion() {
-        try {
+    private void Cargar_Informacion(){
+        try{
            Object o[] = null;
            List<Producto> listP = CProducto.findProductoEntities();
            
-           for (int i = 0; i < listP.size(); i++) {
+           for(int i = 0; i < listP.size(); i++){
                modelo2.addRow(o);
                
                modelo2.setValueAt(listP.get(i).getNombreProducto(), i, 0);
@@ -97,7 +94,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
                
                modelo2.setValueAt(precio, i, 3);
            }
-        } catch (Exception e) { 
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
@@ -186,19 +183,19 @@ ProductoJpaController CProducto = new ProductoJpaController();
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 610, 450));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * J button 1 action performed.
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         OpcionesForm abrir = new OpcionesForm();
         abrir.setVisible(true);
         
-    } //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * J button 2 action performed.
@@ -206,9 +203,11 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //BOTON ACTUALIZAR
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //initComponents();
+        CrearModelo();
         Cargar_Informacion();
-    } //GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * J button 3 action performed.
@@ -216,9 +215,9 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //BOTON SALIR
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         System.exit(0);
-    } //GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * J button 5 action performed.
@@ -226,12 +225,12 @@ ProductoJpaController CProducto = new ProductoJpaController();
      * @param evt the evt
      */
     //Boton generar informes
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton5ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Informes info = new Informes();
         info.informeEntradas();
         info.informeSalidas();
         info.informeDevoluciones();
-    } //GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * The main method.
@@ -244,6 +243,7 @@ ProductoJpaController CProducto = new ProductoJpaController();
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

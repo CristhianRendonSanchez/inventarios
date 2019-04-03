@@ -113,19 +113,19 @@ public class OpcionesForm extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
-    } // </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>//GEN-END:initComponents
 
     /**
      * J button 1 action performed.
      *
      * @param evt the evt
      */
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         CompraForm compra = new CompraForm();
         compra.setVisible(true);
         this.setVisible(false);
-    } //GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * J button 2 action performed.
@@ -133,11 +133,11 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON VENTA
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         VentaForm venta = new VentaForm();
         venta.setVisible(true);
         this.setVisible(false);
-    } //GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * J button 4 action performed.
@@ -145,9 +145,9 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON CERRAR
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.setVisible(false);
-    } //GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     /**
      * J button 3 action performed.
@@ -155,11 +155,11 @@ public class OpcionesForm extends javax.swing.JFrame {
      * @param evt the evt
      */
     //BOTON DEVOLUCION DE MANUEL
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DevolucionForm devolucion = new DevolucionForm();
         devolucion.setVisible(true);
         this.setVisible(false);
-    } //GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * The main method.
